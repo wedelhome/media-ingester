@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  media-ingester:
+    image: media-ingester:latest
+    container_name: media-ingester
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "9090:9090"
+      - "3000:3000"
+    environment:
+      - ENV=production
+    volumes:
+      - ./data:/app/data
+
